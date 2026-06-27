@@ -1008,6 +1008,10 @@ section,
 
 /* Light Mode (Purple & Blue Theme) */
 body[data-theme="light"] {
+    --primary-gold: #5B7BFD;
+    --light-gold: #8B5CF6;
+    --dark-gold: #4338CA;
+    --accent-gold: #7B94FF;
     --primary-black: #1a1f3a;
     --dark-gray: #252d4a;
     --card-bg: #1f2844;
