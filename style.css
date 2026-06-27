@@ -318,19 +318,23 @@ body[data-theme="blue"] .availability-badge {
     background: rgba(91, 123, 253, 0.1);
 }
 
-.status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #2ecc71;
-    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
-    animation: pulse-dot 2s infinite;
+.status-dot,
+.badge-icon {
+    font-size: 0.85em;
+    color: var(--primary-gold);
+    filter: drop-shadow(0 0 6px var(--primary-gold));
+    animation: pulse-dot 2.5s ease-in-out infinite;
+}
+
+body[data-theme="blue"] .status-dot,
+body[data-theme="blue"] .badge-icon {
+    color: #5B7BFD;
+    filter: drop-shadow(0 0 6px #5B7BFD);
 }
 
 @keyframes pulse-dot {
-    0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6); }
-    70% { box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
 }
 
 /* Scroll Down Indicator */
