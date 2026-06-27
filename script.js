@@ -46,6 +46,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 const backToTop = document.getElementById('backToTop');
 const progressBar = document.querySelector('.progress-bar');
 const skillBars = document.querySelectorAll('.skill-progress');
+const hamburger = document.getElementById('hamburger');
 
 // ============================================
 // 1. HAMBURGER MENU TOGGLE
