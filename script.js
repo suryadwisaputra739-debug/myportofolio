@@ -1,41 +1,30 @@
 // ============================================
-// DARK MODE TOGGLE
+// COLOR THEME TOGGLE (Gold <-> Blue)
 // ============================================
 
 const themeToggle = document.getElementById('themeToggle');
-const htmlElement = document.documentElement;
 const body = document.body;
 
-// Check saved theme preference
-const savedTheme = localStorage.getItem('theme') || 'dark';
+// Check saved theme preference (default: Gold theme)
+const savedTheme = localStorage.getItem('theme') || 'gold';
 body.setAttribute('data-theme', savedTheme);
-updateThemeIcon(savedTheme);
+updateThemeUI(savedTheme);
 
 // Theme toggle event
 themeToggle.addEventListener('click', () => {
     const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
+    const newTheme = currentTheme === 'gold' ? 'blue' : 'gold';
+
     body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
+    updateThemeUI(newTheme);
 });
 
-// Update icon berdasarkan theme
-function updateThemeIcon(theme) {
-    const icon = themeToggle.querySelector('i');
-    themeToggle.classList.remove('sun');
-    
-    if (theme === 'light') {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-        themeToggle.classList.add('sun');
-        themeToggle.title = 'Switch to Dark Mode';
-    } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-        themeToggle.title = 'Switch to Light Mode';
-    }
+// Update tooltip + play a little spin animation on switch
+function updateThemeUI(theme) {
+    themeToggle.title = theme === 'blue' ? 'Switch to Gold Theme' : 'Switch to Blue Theme';
+    themeToggle.classList.add('spin');
+    setTimeout(() => themeToggle.classList.remove('spin'), 600);
 }
 
 // ============================================
