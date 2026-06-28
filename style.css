@@ -890,6 +890,83 @@ body[data-theme="blue"] .skill-progress {
     transform: translateY(-5px) scale(1.1);
 }
 
+/* CV Preview Modal */
+.cv-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.cv-modal.active {
+    display: flex;
+}
+
+.cv-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+.cv-modal-content {
+    position: relative;
+    z-index: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-strong), 0 0 40px rgba(0, 0, 0, 0.5);
+    width: min(700px, 100%);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 20px 20px;
+    gap: 16px;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.cv-modal-close {
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1.8em;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.cv-modal-close:hover {
+    color: var(--primary-gold);
+}
+
+.cv-modal-iframe {
+    width: 100%;
+    flex: 1;
+    min-height: 55vh;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.cv-modal-download {
+    align-self: center;
+    width: fit-content;
+}
+
+/* Share Portfolio Button */
+.share-btn {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
 /* Footer */
 .footer {
     background: var(--card-bg);

@@ -26,8 +26,34 @@
     <meta name="twitter:description" content="Active student at Universitas Negeri Surabaya (UNESA) with real-world experience in administration and customer service.">
     <meta name="twitter:image" content="https://suryadwisaputra739-debug.github.io/myportfolio/social-preview.png">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://suryadwisaputra739-debug.github.io/myportfolio/">
+
+    <!-- Structured Data (SEO) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Surya Dwi Saputra",
+        "url": "https://suryadwisaputra739-debug.github.io/myportfolio/",
+        "image": "https://suryadwisaputra739-debug.github.io/myportfolio/social-preview.png",
+        "jobTitle": "Office Administration Student",
+        "description": "Office Administration Professional & Student at Universitas Negeri Surabaya (UNESA).",
+        "email": "mailto:suryadwisaputra739@gmail.com",
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Universitas Negeri Surabaya (UNESA)"
+        },
+        "sameAs": [
+            "https://www.instagram.com/sryaasptraa",
+            "https://www.linkedin.com/in/surya-dwi-saputra-48396b37a",
+            "https://www.tiktok.com/@sryaasptraa"
+        ]
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
     <!-- Progress Bar -->
@@ -54,7 +80,7 @@
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="cv.pdf" class="nav-link btn-cv" download>Download CV</a></li>
+                <li><a href="cv.pdf" class="nav-link btn-cv" id="cvPreviewBtn">Download CV</a></li>
             </ul>
         </div>
     </nav>
@@ -273,6 +299,9 @@
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
+                    <button class="btn btn-secondary share-btn" id="shareBtn">
+                        <i class="fas fa-share-nodes"></i> Share My Portfolio
+                    </button>
                 </div>
             </div>
         </div>
@@ -288,6 +317,18 @@
     <button class="back-to-top" id="backToTop" title="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+    <!-- CV Preview Modal -->
+    <div class="cv-modal" id="cvModal">
+        <div class="cv-modal-overlay" id="cvModalOverlay"></div>
+        <div class="cv-modal-content">
+            <button class="cv-modal-close" id="cvModalClose" aria-label="Close preview">&times;</button>
+            <iframe src="cv.pdf" class="cv-modal-iframe" title="CV Preview"></iframe>
+            <a href="cv.pdf" download class="btn btn-primary cv-modal-download">
+                <i class="fas fa-download"></i> Download PDF
+            </a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

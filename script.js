@@ -164,6 +164,70 @@ const statsObserver = new IntersectionObserver((entries) => {
 statNumbers.forEach(el => statsObserver.observe(el));
 
 // ============================================
+// 13. CV PREVIEW MODAL
+// ============================================
+const cvPreviewBtn = document.getElementById('cvPreviewBtn');
+const cvModal = document.getElementById('cvModal');
+const cvModalClose = document.getElementById('cvModalClose');
+const cvModalOverlay = document.getElementById('cvModalOverlay');
+
+if (cvPreviewBtn && cvModal) {
+    const openCvModal = (e) => {
+        e.preventDefault();
+        cvModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeCvModal = () => {
+        cvModal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    cvPreviewBtn.addEventListener('click', openCvModal);
+    cvModalClose.addEventListener('click', closeCvModal);
+    cvModalOverlay.addEventListener('click', closeCvModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && cvModal.classList.contains('active')) {
+            closeCvModal();
+        }
+    });
+}
+
+// ============================================
+// 14. SHARE PORTFOLIO BUTTON
+// ============================================
+const shareBtn = document.getElementById('shareBtn');
+
+if (shareBtn) {
+    shareBtn.addEventListener('click', async () => {
+        const shareData = {
+            title: 'Surya Dwi Saputra - Portfolio',
+            text: 'Check out my portfolio!',
+            url: window.location.href
+        };
+
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                // user cancelled the share sheet, no action needed
+            }
+        } else {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+                const originalHTML = shareBtn.innerHTML;
+                shareBtn.innerHTML = '<i class="fas fa-check"></i> Link Copied!';
+                setTimeout(() => {
+                    shareBtn.innerHTML = originalHTML;
+                }, 2000);
+            } catch (err) {
+                console.error('Could not copy link:', err);
+            }
+        }
+    });
+}
+
+// ============================================
 // 5. FADE IN ANIMATIONS ON SCROLL
 // ============================================
 const fadeElements = document.querySelectorAll('[class*="fadeInUp"], [class*="slideIn"]');
